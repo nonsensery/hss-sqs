@@ -1,0 +1,16 @@
+{
+  "name": "hss-sqs",
+  "version": "0.0.1",
+  "description": "Custom code for HSS Square Space site",
+  "main": "product-page-custom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp"
+  },
+  "author": "Alex Johnson <alex27@mac.com>",
+  "license": "CC-BY-4.0",
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
