@@ -1,3 +1,5 @@
+$price-font-size: 36px;
+
 #productDetails .product-price .sqs-money-native {
-  font-size: 36px;
+  font-size: $price-font-size;
 }
