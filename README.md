@@ -37,3 +37,8 @@ So far, it does these things on the main product page:
 2. Move the price below the variant selection fields.
 3. Increase the size of the price text.
 4. Change the text on the add-to-cart button to "Choose Details…".
+
+And these things on the pop-up product form (after clicking that first add-to-cart button):
+
+1. Adds a swatch next to the cloth color selection fields to preview the selected color.
+2. Adds a link below the cloth color selection fields that opens the cloth color details page.

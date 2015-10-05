@@ -20,6 +20,12 @@ const PRODUCT_FORM_SEL = '.sqs-async-form-content';
 const ADD_TO_CART_BUTTON_SEL = '.sqs-add-to-cart-button';
 const ADD_TO_CART_INNER_SEL = '.sqs-add-to-cart-button-inner';
 const ADD_TO_CART_HTML = 'Choose Details…';
+const CLOTH_COLOR_INJECT_HTML = (
+  '<span class="hss-cloth-color-swatch"></span>' +
+  '<span class="hss-cloth-color-info"><a href="/swatches" target="_blank">' +
+    'Learn more about our cloth colors…' +
+  '</a></span>'
+);
 
 /**
  jQuery-like alias for querySelectorAll.
@@ -87,6 +93,71 @@ function addToCartClicked() {
  */
 function productFormLoaded() {
   var form = $(PRODUCT_FORM_SEL)[0];
+
+  if (form.dataset.hss_swatches_setup) {
+    return;
+  }
+  form.dataset.hss_swatches_setup = 'true';
+
+  var formItems = $('.form-item.field.select', form);
+  formItems = [].slice.call(formItems);
+
+  formItems.forEach(function (formItem) {
+    var label = $('label.title', formItem)[0];
+    var select = $('select', formItem)[0];
+
+    if (!label || !select || !isClothColorLabel(label)) {
+      return;
+    }
+
+    appendHTML(formItem, CLOTH_COLOR_INJECT_HTML);
+
+    select.addEventListener('change', clothColorSelectChanged);
+    clothColorSelectChanged.call(select);
+  });
+}
+
+/**
+ Whether the label is for a cloth color field.
+ */
+function isClothColorLabel(label) {
+  return (/\bcloth\s+color\b/i).test(label.innerHTML);
+}
+
+/**
+ Callback for changes to cloth color select elements.
+ */
+function clothColorSelectChanged() {
+  var select = this;
+  var swatch = $('.hss-cloth-color-swatch', this.parentNode)[0];
+
+  if (!select || !swatch) {
+    return;
+  }
+
+  removeSwatchColorClassNames(swatch);
+
+  var selectedOpt = select.options[select.selectedIndex];
+
+  if (selectedOpt) {
+    addSwatchColorClassName(swatch, selectedOpt.value);
+  }
+}
+
+/**
+ Removes all cloth color class names from the element.
+ */
+function removeSwatchColorClassNames(el) {
+  var regexp = /^hss-x-/;
+
+  el.className = el.className.split(/\s+/).filter($0 => !regexp.test($0)).join(' ');
+}
+
+/**
+ Adds a specific cloth color name to the element.
+ */
+function addSwatchColorClassName(el, color) {
+  el.className += ' hss-x-' + color.toLowerCase().replace(/\s+/g, '-');
 }
 
 /**

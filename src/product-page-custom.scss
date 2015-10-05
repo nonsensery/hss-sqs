@@ -1,5 +1,82 @@
 $price-font-size: 36px;
+$raspberry-swatch: "5605c3c9e4b0829832a57983/1443218379021";
+$blood-orange-swatch: "5605c47ce4b0392b9760c224/1443218558192";
+$feather-swatch: "5605c48ce4b09e2b033499a7/1443218575783";
+$lapis-swatch: "5605c49ae4b09e2b03349a0a/1443218588005";
+$turquoise-swatch: "5605c4bce4b09e2b03349aed/1443218622560";
+$dove-swatch: "5605c4aae4b0392b9760c35b/1443218603888";
+$jet-swatch: "5605c4cce4b09e2b03349b93/1443218640140";
+$coal-swatch: "5605c4dee4b09e2b03349c12/1443218655739";
+$river-rock-swatch: "5605c4efe4b09e2b03349c88/1443218672233";
+$granite-swatch: "5605c4fee4b09e2b03349ce8/1443218687508";
+$walnut-swatch: "5605c50ae4b09e2b03349d44/1443218700062";
+$eggshell-swatch: "5605c516e4b09e2b03349df7/1443218711399";
+
+@mixin hss-cloth-color-swatch-image($image) {
+  background-image: url(https://static1.squarespace.com/static/54f39187e4b0724ec20bb5e4/t/#{$image}?format=24w);
+}
 
 #productDetails .product-price .sqs-money-native {
   font-size: $price-font-size;
+}
+
+.hss-cloth-color-swatch {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background-size: cover;
+
+  &.hss-x-raspberry {
+    @include hss-cloth-color-swatch-image($raspberry-swatch);
+  }
+
+  &.hss-x-blood-orange {
+    @include hss-cloth-color-swatch-image($blood-orange-swatch);
+  }
+
+  &.hss-x-feather {
+    @include hss-cloth-color-swatch-image($feather-swatch);
+  }
+
+  &.hss-x-lapis {
+    @include hss-cloth-color-swatch-image($lapis-swatch);
+  }
+
+  &.hss-x-turquoise {
+    @include hss-cloth-color-swatch-image($turquoise-swatch);
+  }
+
+  &.hss-x-dove {
+    @include hss-cloth-color-swatch-image($dove-swatch);
+  }
+
+  &.hss-x-jet {
+    @include hss-cloth-color-swatch-image($jet-swatch);
+  }
+
+  &.hss-x-coal {
+    @include hss-cloth-color-swatch-image($coal-swatch);
+  }
+
+  &.hss-x-river-rock {
+    @include hss-cloth-color-swatch-image($river-rock-swatch);
+  }
+
+  &.hss-x-granite {
+    @include hss-cloth-color-swatch-image($granite-swatch);
+  }
+
+  &.hss-x-walnut {
+    @include hss-cloth-color-swatch-image($walnut-swatch);
+  }
+
+  &.hss-x-eggshell {
+    @include hss-cloth-color-swatch-image($eggshell-swatch);
+  }
+}
+
+.hss-cloth-color-info {
+  display: block;
+  font-size: 12px;
 }
