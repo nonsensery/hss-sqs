@@ -1,4 +1,5 @@
 $price-font-size: 36px;
+$field-description-font-size: 12px;
 $raspberry-swatch: "5605c3c9e4b0829832a57983/1443218379021";
 $blood-orange-swatch: "5605c47ce4b0392b9760c224/1443218558192";
 $feather-swatch: "5605c48ce4b09e2b033499a7/1443218575783";
@@ -14,6 +15,10 @@ $eggshell-swatch: "5605c516e4b09e2b03349df7/1443218711399";
 
 @mixin hss-cloth-color-swatch-image($image) {
   background-image: url(https://static1.squarespace.com/static/54f39187e4b0724ec20bb5e4/t/#{$image}?format=24w);
+}
+
+.hss-option-description {
+  font-size: $field-description-font-size;
 }
 
 .hss-albums-callout {

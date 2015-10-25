@@ -24,6 +24,8 @@ const PRODUCT_GALLERY_SEL = '#productGallery';
 const PRODUCT_PRICE_SEL = '.product-price';
 const PRODUCT_QUANTITY_SEL = '.product-quantity-input';
 const PRODUCT_FORM_SEL = '.sqs-async-form-content';
+const LOGO_FIELD_SEL = 'select[data-variant-option-name=Logo]';
+const DEBOSS_SIZE_INFO_HTML = '<div class="hss-option-description">Please note: Deboss logos over 1.25&times;5.5&Prime; may incur an additional charge.</div>';
 const ADD_TO_CART_BUTTON_SEL = '.sqs-add-to-cart-button';
 const ADD_TO_CART_INNER_SEL = '.sqs-add-to-cart-button-inner';
 const ADD_TO_CART_HTML = 'Choose Details…';
@@ -57,10 +59,20 @@ function appendHTML(parentNode, html) {
  Callback for when the product index loads
  */
 function productIndexLoaded() {
+  // Add photo albums callout:
+
   var productList = $(PRODUCT_LIST_SEL)[0];
 
   if (productList) {
     appendHTML(productList.parentNode, PHOTO_ALBUMS_CALLOUT_HTML);
+  }
+
+  // Add text after Logo field:
+
+  var select = $(LOGO_FIELD_SEL)[0];
+
+  if (select) {
+    appendHTML(select.parentNode, DEBOSS_SIZE_INFO_HTML);
   }
 }
 
