@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "assemble": "gulp assemble"
   },
   "author": "Alex Johnson <alex27@mac.com>",
   "license": "CC-BY-4.0",
