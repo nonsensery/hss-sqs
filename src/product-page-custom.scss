@@ -17,7 +17,8 @@ $eggshell-swatch: "5605c516e4b09e2b03349df7/1443218711399";
   background-image: url(https://static1.squarespace.com/static/54f39187e4b0724ec20bb5e4/t/#{$image}?format=24w);
 }
 
-.hss-option-description {
+.hss-field-description {
+  display: block;
   font-size: $field-description-font-size;
 }
 
@@ -88,9 +89,4 @@ $eggshell-swatch: "5605c516e4b09e2b03349df7/1443218711399";
   &.hss-x-eggshell {
     @include hss-cloth-color-swatch-image($eggshell-swatch);
   }
-}
-
-.hss-cloth-color-info {
-  display: block;
-  font-size: 12px;
 }

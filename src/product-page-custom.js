@@ -25,13 +25,17 @@ const PRODUCT_PRICE_SEL = '.product-price';
 const PRODUCT_QUANTITY_SEL = '.product-quantity-input';
 const PRODUCT_FORM_SEL = '.sqs-async-form-content';
 const LOGO_FIELD_SEL = 'select[data-variant-option-name=Logo]';
-const DEBOSS_SIZE_INFO_HTML = '<div class="hss-option-description">Please note: Deboss logos over 1.25&times;5.5&Prime; may incur an additional charge.</div>';
+const DEBOSS_SIZE_INFO_HTML = (
+  '<span class="hss-field-description">' +
+    'Please note: Deboss logos over 1.25&times;5.5&Prime; may incur an additional charge.' +
+  '</span>'
+);
 const ADD_TO_CART_BUTTON_SEL = '.sqs-add-to-cart-button';
 const ADD_TO_CART_INNER_SEL = '.sqs-add-to-cart-button-inner';
 const ADD_TO_CART_HTML = 'Choose Details…';
 const CLOTH_COLOR_INJECT_HTML = (
   '<span class="hss-cloth-color-swatch"></span>' +
-  '<span class="hss-cloth-color-info"><a href="/swatches" target="_blank">' +
+  '<span class="hss-field-description"><a href="/color-and-logo-options" target="_blank">' +
     'Learn more about our cloth colors…' +
   '</a></span>'
 );
