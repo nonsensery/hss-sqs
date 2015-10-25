@@ -16,6 +16,15 @@ $eggshell-swatch: "5605c516e4b09e2b03349df7/1443218711399";
   background-image: url(https://static1.squarespace.com/static/54f39187e4b0724ec20bb5e4/t/#{$image}?format=24w);
 }
 
+.hss-albums-callout {
+  padding-top: 1em;
+  text-align: center;
+
+  a {
+    white-space: nowrap;
+  }
+}
+
 #productDetails .product-price .sqs-money-native {
   font-size: $price-font-size;
 }

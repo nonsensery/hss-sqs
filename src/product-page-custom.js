@@ -12,6 +12,13 @@ function isSupportedBrowser() {
   return !!(doc.querySelectorAll && doc.addEventListener && [].filter && [].forEach);
 }
 
+const PRODUCT_LIST_SEL = '#productList';
+const PHOTO_ALBUMS_CALLOUT_HTML = (
+  '<p class="hss-albums-callout">' +
+    'Looking for Hinged Strung Stitched photo albums? ' +
+    '<a href="https://www.etsy.com/shop/HingedStrungStitched">Find them on Etsy.</a>' +
+  '</p>'
+);
 const PRODUCT_EXCERPT_SEL = '.product-excerpt';
 const PRODUCT_GALLERY_SEL = '#productGallery';
 const PRODUCT_PRICE_SEL = '.product-price';
@@ -43,6 +50,17 @@ function appendHTML(parentNode, html) {
 
   while (div.firstChild) {
     parentNode.appendChild(div.firstChild);
+  }
+}
+
+/**
+ Callback for when the product index loads
+ */
+function productIndexLoaded() {
+  var productList = $(PRODUCT_LIST_SEL)[0];
+
+  if (productList) {
+    appendHTML(productList.parentNode, PHOTO_ALBUMS_CALLOUT_HTML);
   }
 }
 
@@ -164,6 +182,7 @@ function addSwatchColorClassName(el, color) {
  Initialize this stuff.
  */
 doc.addEventListener('DOMContentLoaded', function () {
+  productIndexLoaded();
   productPageLoaded();
 
   var addToCartBtn = $(ADD_TO_CART_BUTTON_SEL)[0];

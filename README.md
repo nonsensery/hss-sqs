@@ -24,7 +24,11 @@ Add the code to the site using these steps:
 
 ## What it Do?
 
-So far, it does these things on the main product page:
+So far, it does these things on the product index page:
+
+1. Add a callout for the photo albums with a link to Etsy.
+
+These things on the main product page:
 
 1. Move the product excerpt to the left column, below the photos.
 2. Move the price below the variant selection fields.
