@@ -120,11 +120,9 @@ function productPageLoaded() {
  Callback for when the "Add to Cart" button is clicked.
  */
 function addToCartClicked() {
-  setTimeout(function () {
-    if ($(PRODUCT_FORM_SEL)[0]) {
-      productFormLoaded();
-    }
-  }, 500);
+  setTimeout(productFormLoaded, 100);
+  setTimeout(productFormLoaded, 500);
+  setTimeout(productFormLoaded, 750);
 }
 
 /**
@@ -133,10 +131,10 @@ function addToCartClicked() {
 function productFormLoaded() {
   var form = $(PRODUCT_FORM_SEL)[0];
 
-  if (form.dataset.hss_swatches_setup) {
+  if (!form || form.dataset.hss_setup) {
     return;
   }
-  form.dataset.hss_swatches_setup = 'true';
+  form.dataset.hss_setup = 'true';
 
   var formItems = $('.form-item.field.select', form);
   formItems = [].slice.call(formItems);
