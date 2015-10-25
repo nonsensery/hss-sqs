@@ -39,6 +39,11 @@ const CLOTH_COLOR_INJECT_HTML = (
     'Learn more about our cloth colors…' +
   '</a></span>'
 );
+const LOGO_ARTWORK_HTML = (
+  '<span class="hss-field-description"><a href="/logo-and-page-specs" target="_blank">' +
+    'Find out how to prepare your file…' +
+  '</a></span>'
+);
 
 /**
  jQuery-like alias for querySelectorAll.
@@ -147,6 +152,9 @@ function productFormLoaded() {
     if (isClothColorLabel(label)) {
       setupClothColorField(formItem, select);
     }
+    else if (isLogoArtworkLabel(label)) {
+      setupLogoArtworkField(formItem, select);
+    }
   });
 }
 
@@ -201,6 +209,20 @@ function removeSwatchColorClassNames(el) {
  */
 function addSwatchColorClassName(el, color) {
   el.className += ' hss-x-' + color.toLowerCase().replace(/\s+/g, '-');
+}
+
+/**
+ Whether the label is for the logo artwork field.
+ */
+function isLogoArtworkLabel(label) {
+  return (/\logo\s+artwork\b/i).test(label.innerHTML);
+}
+
+/**
+ Sets up a logo artwork field
+ */
+function setupLogoArtworkField(formItem, select) {
+  appendHTML(formItem, LOGO_ARTWORK_HTML);
 }
 
 /**

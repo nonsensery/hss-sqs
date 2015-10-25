@@ -39,3 +39,4 @@ And these things on the pop-up product form (after clicking that first add-to-ca
 
 1. Adds a swatch next to the cloth color selection fields to preview the selected color.
 2. Adds a link below the cloth color selection fields that opens the cloth color details page.
+3. Adds a link below the logo artwork field that opens the logo details page.
