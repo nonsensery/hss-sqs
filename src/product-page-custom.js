@@ -24,6 +24,7 @@ const PRODUCT_GALLERY_SEL = '#productGallery';
 const PRODUCT_PRICE_SEL = '.product-price';
 const PRODUCT_QUANTITY_SEL = '.product-quantity-input';
 const PRODUCT_FORM_SEL = '.sqs-async-form-content';
+const SUBMIT_PRODUCT_FORM_BUTTON_SEL = '.sqs-system-button';
 const LOGO_FIELD_SEL = 'select[data-variant-option-name=Logo]';
 const DEBOSS_SIZE_INFO_HTML = (
   '<span class="hss-field-description">' +
@@ -122,6 +123,11 @@ function updateAddToCartText() {
 
   var addToCartHTML = addToCart.innerHTML;
 
+  if ((/add(ing|ed)/i).test(addToCartHTML)) {
+    setTimeout(updateAddToCartText, 100);
+    return;
+  }
+
   addToCart.innerHTML = ADD_TO_CART_HTML;
 }
 
@@ -164,6 +170,12 @@ function productFormLoaded() {
       setupLogoArtworkField(formItem, select);
     }
   });
+
+  var submitProductForm = $(SUBMIT_PRODUCT_FORM_BUTTON_SEL, form)[0];
+
+  if (submitProductForm) {
+    submitProductForm.addEventListener('click', submitProductFormClicked);
+  }
 }
 
 /**
@@ -231,6 +243,15 @@ function isLogoArtworkLabel(label) {
  */
 function setupLogoArtworkField(formItem, select) {
   appendHTML(formItem, LOGO_ARTWORK_HTML);
+}
+
+/**
+ Handler for clicks on the product form's submit button.
+ */
+function submitProductFormClicked() {
+  // We want to make sure the add to cart button text gets
+  // changed back to Choose Details again.
+  setTimeout(updateAddToCartText, 500);
 }
 
 /**
