@@ -107,19 +107,29 @@ function productPageLoaded() {
     quantity.parentNode.insertBefore(price, quantity);
   }
 
-  // Change text of the "Add to Cart" button:
+  updateAddToCartText();
+}
 
+/**
+ Changes the text of the "Add to Cart" button.
+ */
+function updateAddToCartText() {
   var addToCart = $(ADD_TO_CART_INNER_SEL)[0];
 
-  if (addToCart) {
-    addToCart.innerHTML = ADD_TO_CART_HTML;
+  if (!addToCart) {
+    return;
   }
+
+  var addToCartHTML = addToCart.innerHTML;
+
+  addToCart.innerHTML = ADD_TO_CART_HTML;
 }
 
 /**
  Callback for when the "Add to Cart" button is clicked.
  */
 function addToCartClicked() {
+  // There's some tricky timing here because the form loads asynchronously.
   setTimeout(productFormLoaded, 100);
   setTimeout(productFormLoaded, 500);
   setTimeout(productFormLoaded, 750);
