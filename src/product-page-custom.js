@@ -157,17 +157,16 @@ function productFormLoaded() {
 
   formItems.forEach(function (formItem) {
     var label = $('label.title', formItem)[0];
-    var select = $('select', formItem)[0];
 
-    if (!label || !select) {
+    if (!label) {
       return;
     }
 
     if (isClothColorLabel(label)) {
-      setupClothColorField(formItem, select);
+      setupClothColorField(formItem);
     }
     else if (isLogoArtworkLabel(label)) {
-      setupLogoArtworkField(formItem, select);
+      setupLogoArtworkField(formItem);
     }
   });
 
@@ -188,7 +187,13 @@ function isClothColorLabel(label) {
 /**
  Sets up a cloth color field.
  */
-function setupClothColorField(formItem, select) {
+function setupClothColorField(formItem) {
+  var select = $('select', formItem)[0];
+
+  if (!select) {
+    return;
+  }
+
   appendHTML(formItem, CLOTH_COLOR_INJECT_HTML);
 
   select.addEventListener('change', clothColorSelectChanged);
@@ -241,7 +246,7 @@ function isLogoArtworkLabel(label) {
 /**
  Sets up a logo artwork field
  */
-function setupLogoArtworkField(formItem, select) {
+function setupLogoArtworkField(formItem) {
   appendHTML(formItem, LOGO_ARTWORK_HTML);
 }
 
