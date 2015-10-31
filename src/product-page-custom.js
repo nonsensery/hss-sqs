@@ -202,7 +202,7 @@ function clothColorSelectChanged() {
   var select = this;
   var swatch = $('.hss-cloth-color-swatch', this.parentNode)[0];
 
-  if (!select || !swatch) {
+  if (!swatch) {
     return;
   }
 
