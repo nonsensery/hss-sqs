@@ -20,6 +20,10 @@ $eggshell-swatch: "5605c516e4b09e2b03349df7/1443218711399";
 .hss-field-description {
   display: block;
   font-size: $field-description-font-size;
+
+  .form-item.field & {
+    margin-top: 0.5em;
+  }
 }
 
 .hss-albums-callout {
