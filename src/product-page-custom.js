@@ -152,7 +152,7 @@ function productFormLoaded() {
   }
   form.dataset.hss_setup = 'true';
 
-  var formItems = $('.form-item.field.select', form);
+  var formItems = $('.form-item.field', form);
   formItems = [].slice.call(formItems);
 
   formItems.forEach(function (formItem) {
@@ -240,7 +240,7 @@ function addSwatchColorClassName(el, color) {
  Whether the label is for the logo artwork field.
  */
 function isLogoArtworkLabel(label) {
-  return (/\logo\s+artwork\b/i).test(label.innerHTML);
+  return (/\email\s+for\s+logo\s+file\b/i).test(label.innerHTML);
 }
 
 /**
